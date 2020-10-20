@@ -4,7 +4,7 @@
     "name": "Duro_GPS",
     "params": {
       "Frequency": 10,
-      "Topic": "/nmea_sentence",
+      "Topic": "/duro/gps/fix",
       "Frame": "gps",
       "IgnoreMapOrigin": true
     },
@@ -22,7 +22,7 @@
     "name": "Novatel_GPS",
     "params": {
       "Frequency": 20,
-      "Topic": "/nmea_sentence",
+      "Topic": "/nova/gps/fix",
       "Frame": "gps",
       "IgnoreMapOrigin": true
     },
@@ -82,7 +82,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#ff000000",
-      "Topic": "/points_raw",
+      "Topic": "/velodyne_right",
       "Frame": "velodyne_right"
     },
     "transform": {
@@ -107,7 +107,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#ff000000",
-      "Topic": "/points_raw",
+      "Topic": "/velodyne_left",
       "Frame": "velodyne_left"
     },
     "transform": {
