@@ -37,7 +37,7 @@
   },
   {
     "type": "GPS Odometry",
-    "name": "GPS Odometry",
+    "name": "GPS_Odometry",
     "params": {
       "Frequency": 20,
       "Topic": "/odom",
@@ -71,7 +71,7 @@
   },
   {
     "type": "Lidar",
-    "name": "velodyne_right",
+    "name": "Velodyne_Right",
     "params": {
       "LaserCount": 32,
       "MinDistance": 0.5,
@@ -96,7 +96,7 @@
   },
   {
     "type": "Lidar",
-    "name": "velodyne_left",
+    "name": "Velodyne_Left",
     "params": {
       "LaserCount": 32,
       "MinDistance": 0.5,
@@ -121,7 +121,7 @@
   },
   {
     "type": "Lidar",
-    "name": "right_os1/os1_sensor",
+    "name": "Ouster_Right",
     "params": {
       "LaserCount": 64,
       "MinDistance": 0.5,
@@ -146,7 +146,7 @@
   },
   {
     "type": "Lidar",
-    "name": "left_os1/os1_sensor",
+    "name": "Ouster_Left",
     "params": {
       "LaserCount": 64,
       "MinDistance": 0.5,
@@ -165,13 +165,13 @@
       "y": 1.278,
       "z": 1.769,
       "pitch": 0,
-      "yaw": 0,
+      "yaw": 180,
       "roll": 0
     }
   },
   {
     "type": "Lidar",
-    "name": "laser",
+    "name": "Sick_LMS111",
     "params": {
       "LaserCount": 10,
       "MinDistance": 0.5,
@@ -196,7 +196,7 @@
   },
   {
     "type": "Color Camera",
-    "name": "zed1",
+    "name": "ZED_1",
     "params": {
       "Width": 1920,
       "Height": 1080,
@@ -219,7 +219,7 @@
   },
   {
     "type": "Color Camera",
-    "name": "zed2",
+    "name": "ZED_2",
     "params": {
       "Width": 1920,
       "Height": 1080,
