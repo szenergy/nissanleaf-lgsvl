@@ -73,7 +73,7 @@
     "type": "Lidar",
     "name": "Velodyne_Right",
     "params": {
-      "LaserCount": 32,
+      "LaserCount": 16,
       "MinDistance": 0.5,
       "MaxDistance": 200,
       "RotationFrequency": 20,
@@ -82,7 +82,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#ff000000",
-      "Topic": "/velodyne_right",
+      "Topic": "/velodyne_right/velodyne_points",
       "Frame": "velodyne_right"
     },
     "transform": {
@@ -98,7 +98,7 @@
     "type": "Lidar",
     "name": "Velodyne_Left",
     "params": {
-      "LaserCount": 32,
+      "LaserCount": 16,
       "MinDistance": 0.5,
       "MaxDistance": 200,
       "RotationFrequency": 20,
@@ -107,7 +107,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#ff000000",
-      "Topic": "/velodyne_left",
+      "Topic": "/velodyne_left/velodyne_points",
       "Frame": "velodyne_left"
     },
     "transform": {
@@ -132,7 +132,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#0000ff",
-      "Topic": "/points_raw",
+      "Topic": "/right_os1/os1_cloud_node/points",
       "Frame": "right_os1/os1_sensor"
     },
     "transform": {
@@ -157,7 +157,7 @@
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#0000ff",
-      "Topic": "/points_raw",
+      "Topic": "/left_os1/os1_cloud_node/points",
       "Frame": "left_os1/os1_sensor"
     },
     "transform": {
@@ -173,16 +173,16 @@
     "type": "Lidar",
     "name": "Sick_LMS111",
     "params": {
-      "LaserCount": 10,
+      "LaserCount": 1,
       "MinDistance": 0.5,
-      "MaxDistance": 100,
-      "RotationFrequency": 10,
+      "MaxDistance": 25,
+      "RotationFrequency": 25,
       "MeasurementsPerRotation": 360,
       "FieldOfView": 1,
       "CenterAngle": 10,
       "Compensated": true,
       "PointColor": "#00ff00",
-      "Topic": "/laser_scan",
+      "Topic": "/cloud",
       "Frame": "laser"
     },
     "transform": {
@@ -198,14 +198,14 @@
     "type": "Color Camera",
     "name": "ZED_1",
     "params": {
-      "Width": 1920,
-      "Height": 1080,
-      "Frequency": 60,
+      "Width": 672,
+      "Height": 376,
+      "Frequency": 20,
       "JpegQuality": 75,
       "FieldOfView": 90,
       "MinDistance": 0.3,
-      "MaxDistance": 25,
-      "Topic": "/simulator/camera_node/image/compressed",
+      "MaxDistance": 200,
+      "Topic": "/zed_node/left/image_rect_color/compressed",
       "Frame": "zed"
     },
     "transform": {
@@ -221,14 +221,14 @@
     "type": "Color Camera",
     "name": "ZED_2",
     "params": {
-      "Width": 1920,
-      "Height": 1080,
-      "Frequency": 60,
+      "Width": 672,
+      "Height": 376,
+      "Frequency": 20,
       "JpegQuality": 75,
       "FieldOfView": 90,
       "MinDistance": 0.3,
-      "MaxDistance": 25,
-      "Topic": "/simulator/camera_node/image/compressed",
+      "MaxDistance": 200,
+      "Topic": "/zed_node/right/image_rect_color/compressed",
       "Frame": "zed"
     },
     "transform": {
