@@ -4,8 +4,8 @@
     "name": "Duro_GPS",
     "params": {
       "Frequency": 10,
-      "Topic": "/duro/gps/fix",
-      "Frame": "gps",
+      "Topic": "/gps/duro/nmea",
+      "Frame": "map",
       "IgnoreMapOrigin": true
     },
     "transform": {
@@ -22,8 +22,8 @@
     "name": "Novatel_GPS",
     "params": {
       "Frequency": 20,
-      "Topic": "/nova/gps/fix",
-      "Frame": "gps",
+      "Topic": "/gps/nova/nmea",
+      "Frame": "map",
       "IgnoreMapOrigin": true
     },
     "transform": {
@@ -41,7 +41,7 @@
     "params": {
       "Frequency": 20,
       "Topic": "/odom",
-      "Frame": "gps",
+      "Frame": "map",
       "IgnoreMapOrigin": true
     },
     "transform": {
