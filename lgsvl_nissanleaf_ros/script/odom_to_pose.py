@@ -19,13 +19,13 @@ def odomCallBack(msg):
     pose_msg.header.stamp = rospy.Time.now()
     if param_location == "zero":
         pose_msg.pose.position.x = msg.pose.pose.position.x
-        pose_msg.pose.position.y = msg.pose.pose.position.x
+        pose_msg.pose.position.y = msg.pose.pose.position.y
     elif param_location == "zala":
         pose_msg.pose.position.x = msg.pose.pose.position.x + zala_x
-        pose_msg.pose.position.y = msg.pose.pose.position.x + zala_y
+        pose_msg.pose.position.y = msg.pose.pose.position.y + zala_y
     else:
         pose_msg.pose.position.x = msg.pose.pose.position.x + gyor_x
-        pose_msg.pose.position.y = msg.pose.pose.position.x + gyor_y
+        pose_msg.pose.position.y = msg.pose.pose.position.y + gyor_y
     pose_msg.pose.orientation = msg.pose.pose.orientation
     #rospy.loginfo(pose_msg)
     if pub_odom is not None:
