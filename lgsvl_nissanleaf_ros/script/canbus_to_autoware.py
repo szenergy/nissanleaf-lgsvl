@@ -15,8 +15,8 @@ def canCallBack(msg):
     vel_msg=geomsg.TwistStamped()
     vel_msg.header.stamp = rospy.Time.now()
     vel_msg.header.frame_id = "base_link"
-    vel_msg.twist.linear.x=msg.speed_mps
-    vel_msg.twist.angular.z=-msg.steer_pct*(3.14/180)
+    vel_msg.twist.linear.x=msg.speed_mps                #m/s
+    vel_msg.twist.angular.z=-msg.steer_pct*31*(3.14/180)  #rad  todo:revision stearing limit
     if pub_velocity is not None:
         pub_velocity.publish(vel_msg)
 
@@ -24,8 +24,8 @@ def canCallBack(msg):
     vehicle_msg=autoware.VehicleStatus()
     vehicle_msg.header.stamp = rospy.Time.now()
     vehicle_msg.header.frame_id = "base_link"
-    vehicle_msg.speed=msg.speed_mps
-    vehicle_msg.angle=-msg.steer_pct*(3.14/180)
+    vehicle_msg.speed=msg.speed_mps                 #m/s
+    vehicle_msg.angle=-msg.steer_pct*31*(3.14/180)     #rad        todo:revision steering limit
     if pub_vehiclestatus is not None:
         pub_vehiclestatus.publish(vehicle_msg)
 
