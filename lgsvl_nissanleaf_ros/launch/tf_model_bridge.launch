@@ -23,7 +23,7 @@
   <node args="0.0 0.0 0.0 0.0 0.0 0.0 /right_os1/os1_sensor /right_os1/os1_imu 50" name="os1sensorimuright" pkg="tf" type="static_transform_publisher"/>
   <param name="lgsvl_location" value="gyor"/> <!-- gyor / zala / zero -->
   <node pkg="lgsvl_nissanleaf_ros" type="odom_to_pose.py" name="odom_to_pose_py" output="screen" />
-
+  <node pkg="lgsvl_nissanleaf_ros" type="canbus_to_autoware.py" name="canbus_to_autoware_py" output="screen" />
 
   <node pkg="gps_tf_publisher" type="gps_tf_publisher" name="novatel_leaf_tf_publisher">
     <remap from="gps/current_pose" to="/current_pose"/>
