@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- Launch file for testing parking_challange algorithms
+ need to launch get work:
+ - Gergő's algorithm
+ - MPC_follower nod
+
+ -->
+
+
+
+<launch>
+
+    <!--convert simulated pointcloud from 2d lidar to laserscan-->
+    <node pkg="pointcloud_to_laserscan"  type= "pointcloud_to_laserscan_node"  name="pointcloud_to_laserscan"/>
+
+    <!-- include lidar2d node algorithm from Mátyás 
+    <include file="$(find lidar2d)/launchdir/park_goal.launch" /> -->
+
+    <!--Publish necessary topics for MPC  -->
+    <node pkg="nissan_bringup" type="bare_planner.py" name="bare_planner_py"/>
+    <node pkg="nissan_bringup" type="global_waypoint_monitor.py" name="global_waypoint_monitor_py"/>
+    
+    <!--include launch file for conversions for /vehicle_cmd topic. MPC_follower node is NOT included-->
+    <include file="$(find lgsvl_nissanleaf_ros)/launch/twist_gate.launch" />
+
+</launch>
+
