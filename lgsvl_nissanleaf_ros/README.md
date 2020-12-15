@@ -8,7 +8,7 @@ In order to create `/current_pose` from `/odom` simply run:
 rosrun lgsvl_nissanleaf_ros odom_to_pose.py
 ```
 
-There are 3 default locations whic can be simulated as:
+There are 3 default locations which can be simulated as:
 ```
 rosparam set lgsvl_location zala
 rosparam set lgsvl_location gyor
