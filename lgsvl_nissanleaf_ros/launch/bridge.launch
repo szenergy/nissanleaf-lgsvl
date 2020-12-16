@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    BRIDGE:     roslaunch rosbridge_server rosbridge_websocket.launch
+-->
+<launch>
+  <!-- bridge -->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+</launch>

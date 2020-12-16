@@ -6,36 +6,11 @@
 -->
 <launch>
   <!-- tf -->
-  <node args="697237.0 5285644.0 0.0 0.0 0.0 0.0 /map /map_gyor_0 50" name="gyor0_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="639770.0 5195040.0 0.0 0.0 0.0 0.0 /map /map_zala_0 50" name="zala0_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="0.0 0.0 0.2 0.0 0.0 0.0 /base_link /duro_gps 50" name="duro_gps_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="1.749 0.703 1.166 0.0 0.0 -1.0471975511965976 /base_link /velodyne_left 50" name="velodyne_left_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="1.874 0.0 1.286 0.0 0.0 0.0 /base_link /zed_camera_front 50" name="zed_camera_front_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="1.749 -0.703 1.166 0.0 0.0 1.0471975511965976 /base_link /velodyne_right 50" name="velodyne_right_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="3.707 -0.351 0.113 0.0 0.0 0.0 /base_link /laser 50" name="sick_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="1.769 -0.58 1.278 3.1415926535 0.0 0.0 /base_link right_os1/os1_sensor 50" name="ouster_right_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="0.0 0.0 0.2 0.0 0.0 0.0 /base_link /duro_gps_imu 50" name="duro_gps_imu_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <node args="1.769 0.58 1.278 3.1415926535 0.0 0.0 /base_link left_os1/os1_sensor 50" name="ouster_left_tf_publisher" pkg="tf" type="static_transform_publisher"/>
-  <!-- Note the order ypr instead of the often used rpy -->
-  <node args="0.0 0.0 0.0 0.0 0.0 0.0 /left_os1/os1_sensor /left_os1/os1_lidar 50" name="os1sensorlidarleft" pkg="tf" type="static_transform_publisher"/>
-  <node args="0.0 0.0 0.0 0.0 0.0 0.0 /left_os1/os1_sensor /left_os1/os1_imu 50" name="os1sensorimuleft" pkg="tf" type="static_transform_publisher"/>
-  <node args="0.0 0.0 0.0 0.0 0.0 0.0 /right_os1/os1_sensor /right_os1/os1_lidar 50" name="os1sensorlidarright" pkg="tf" type="static_transform_publisher"/>
-  <node args="0.0 0.0 0.0 0.0 0.0 0.0 /right_os1/os1_sensor /right_os1/os1_imu 50" name="os1sensorimuright" pkg="tf" type="static_transform_publisher"/>
-  <param name="lgsvl_location" value="gyor"/> <!-- gyor / zala / zero -->
-  <node pkg="lgsvl_nissanleaf_ros" type="odom_to_pose.py" name="odom_to_pose_py" output="screen" />
-  <node pkg="lgsvl_nissanleaf_ros" type="canbus_to_autoware.py" name="canbus_to_autoware_py" output="screen" />
-
-  <node pkg="gps_tf_publisher" type="gps_tf_publisher" name="novatel_leaf_tf_publisher">
-    <remap from="gps/current_pose" to="/current_pose"/>
-  </node>
-  <node pkg="tf" type="static_transform_publisher" name="novatel_static_tf_publisher" args="-1.33 0.408 -1.362 0 0 0 gps base_link 5"/>
-
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/tf.launch" />
 
   <!-- model -->
-  <arg name="model_path" default="$(find nissan_bringup)/param/nissan_leaf_robotdescription.ref.xml" />
-  <include file="$(find vehicle_description)/launch/vehicle_model.launch" />
-  <param name="robot_description" textfile="$(arg model_path)" />
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/model.launch" />
   
   <!-- bridge -->
-  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/bridge.launch" />
 </launch>
