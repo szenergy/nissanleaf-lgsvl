@@ -1,0 +1,261 @@
+[
+  {
+    "type": "CAN-Bus",
+    "name": "CAN Bus",
+    "params": {
+      "Frequency": 10,
+      "Topic": "/canbus"
+    },
+    "transform": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+
+
+  {
+    "type": "GPS Odometry",
+    "name": "Duro_GPS",
+    "params": {
+      "Frequency": 10,
+      "Topic": "/gps/duro/odom",
+      "Frame": "map",
+      "IgnoreMapOrigin": true
+    },
+    "transform": {
+      "x": 0.0,
+      "y": 1.18,
+      "z": -0.196,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "GPS Odometry",
+    "name": "Novatel_GPS",
+    "params": {
+      "Frequency": 20,
+      "Topic": "/gps/nova/odom",
+      "Frame": "map",
+      "IgnoreMapOrigin": true
+    },
+    "transform": {
+      "x": 0.408,
+      "y": 1.362,
+      "z": 1.33,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+
+  {
+    "type": "IMU",
+    "name": "Duro_IMU",
+    "params": {
+      "Topic": "/imu_raw",
+      "Frame": "imu"
+    },
+    "transform": {
+      "x": 0,
+      "y": 0.547,
+      "z": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "VelodyneLidar",
+    "name": "Velodyne_Right",
+    "params": {
+      "MinDistance": 0.5,
+      "MaxDistance": 200,
+      "RotationFrequency": 20,
+      "MeasurementsPerRotation": 360,
+      "Compensated": true,
+      "PointColor": "#ff000000",
+      "Topic": "/velodyne_right/velodyne_points",
+      "Frame": "velodyne_right",
+      "VelodyneLidarType": "VLP_16",
+      "HostName": "127.0.0.1",
+      "UdpPortData": 2368,
+      "UdpPortPosition": 8308
+    },
+    "transform": {
+      "x": 0.703,
+      "y": 1.166,
+      "z": 1.749,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": -60
+    }
+  },
+  {
+    "type": "VelodyneLidar",
+    "name": "Velodyne_Left",
+    "params": {
+      "MinDistance": 0.5,
+      "MaxDistance": 200,
+      "RotationFrequency": 20,
+      "MeasurementsPerRotation": 360,
+      "Compensated": true,
+      "PointColor": "#ff000000",
+      "Topic": "/velodyne_left/velodyne_points",
+      "Frame": "velodyne_left",
+      "VelodyneLidarType": "VLP_16",
+      "HostName": "127.0.0.1",
+      "UdpPortData": 2369,
+      "UdpPortPosition": 8308
+    },
+    "transform": {
+      "x": -0.703,
+      "y": 1.166,
+      "z": 1.749,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 60
+    }
+  },
+  {
+    "type": "VelodyneLidar",
+    "name": "Ouster_Right",
+    "params": {
+      "MinDistance": 0.5,
+      "MaxDistance": 120,
+      "RotationFrequency": 20,
+      "MeasurementsPerRotation": 360,
+      "Compensated": true,
+      "PointColor": "#ff000000",
+      "Topic": "/right_os1/os1_cloud_node/points",
+      "Frame": "right_os1/os1_sensor",
+      "VelodyneLidarType": "VLP_32C",
+      "HostName": "127.0.0.1",
+      "UdpPortData": 2370,
+      "UdpPortPosition": 8308
+    },
+    "transform": {
+      "x": 0.58,
+      "y": 1.278,
+      "z": 1.769,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "VelodyneLidar",
+    "name": "Ouster_Left",
+    "params": {
+      "MinDistance": 0.5,
+      "MaxDistance": 120,
+      "RotationFrequency": 20,
+      "MeasurementsPerRotation": 360,
+      "Compensated": true,
+      "PointColor": "#ff000000",
+      "Topic": "/left_os1/os1_cloud_node/points",
+      "Frame": "left_os1/os1_sensor",
+      "VelodyneLidarType": "VLP_32C",
+      "HostName": "127.0.0.1",
+      "UdpPortData": 2371,
+      "UdpPortPosition": 8308
+    },
+    "transform": {
+      "x": 0.58,
+      "y": 1.278,
+      "z": 1.769,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "Lidar",
+    "name": "Sick_LMS111",
+    "params": {
+      "LaserCount": 1,
+      "MinDistance": 0.01,
+      "MaxDistance": 25,
+      "RotationFrequency": 25,
+      "MeasurementsPerRotation": 540,
+      "FieldOfView": 1,
+      "CenterAngle": 0,
+      "Compensated": true,
+      "PointColor": "#00ff00",
+      "Topic": "/cloud",
+      "Frame": "laser"
+    },
+    "transform": {
+      "x": 0.351,
+      "y": 0.108,
+      "z": 3.707,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "Color Camera",
+    "name": "ZED_1",
+    "params": {
+      "Width": 672,
+      "Height": 376,
+      "Frequency": 20,
+      "JpegQuality": 75,
+      "FieldOfView": 90,
+      "MinDistance": 0.3,
+      "MaxDistance": 200,
+      "Topic": "/zed_node/left/image_rect_color/compressed",
+      "Frame": "zed"
+    },
+    "transform": {
+      "x": 0.0,
+      "y": 1.286,
+      "z": 1.874,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "Color Camera",
+    "name": "ZED_2",
+    "params": {
+      "Width": 672,
+      "Height": 376,
+      "Frequency": 20,
+      "JpegQuality": 75,
+      "FieldOfView": 90,
+      "MinDistance": 0.3,
+      "MaxDistance": 200,
+      "Topic": "/zed_node/right/image_rect_color/compressed",
+      "Frame": "zed"
+    },
+    "transform": {
+      "x": 0.16,
+      "y": 1.286,
+      "z": 1.874,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  },
+  {
+    "type": "Keyboard Control",
+    "name": "Keyboard Car Control"
+  },
+  {
+    "type": "Wheel Control",
+    "name": "Wheel Car Control"
+  },
+  {
+    "type": "Vehicle Control",
+    "name": "Autoware Car Control",
+    "params": { "Topic": "/vehicle_cmd" }
+  }
+]
