@@ -82,7 +82,7 @@
       "PointColor": "#ff000000",
       "Topic": "/velodyne_right/velodyne_points",
       "Frame": "velodyne_right",
-      "VelodyneLidarType": "VLP_16",
+      "VelodyneLidarType": "VLP_32C",
       "HostName": "127.0.0.1",
       "UdpPortData": 2368,
       "UdpPortPosition": 8308
@@ -108,7 +108,7 @@
       "PointColor": "#ff000000",
       "Topic": "/velodyne_left/velodyne_points",
       "Frame": "velodyne_left",
-      "VelodyneLidarType": "VLP_16",
+      "VelodyneLidarType": "VLP_32C",
       "HostName": "127.0.0.1",
       "UdpPortData": 2369,
       "UdpPortPosition": 8308
@@ -134,7 +134,7 @@
       "PointColor": "#ff000000",
       "Topic": "/right_os1/os1_cloud_node/points",
       "Frame": "right_os1/os1_sensor",
-      "VelodyneLidarType": "VLP_32C",
+      "VelodyneLidarType": "VLP_64",
       "HostName": "127.0.0.1",
       "UdpPortData": 2370,
       "UdpPortPosition": 8308
@@ -160,7 +160,7 @@
       "PointColor": "#ff000000",
       "Topic": "/left_os1/os1_cloud_node/points",
       "Frame": "left_os1/os1_sensor",
-      "VelodyneLidarType": "VLP_32C",
+      "VelodyneLidarType": "VLP_64",
       "HostName": "127.0.0.1",
       "UdpPortData": 2371,
       "UdpPortPosition": 8308
