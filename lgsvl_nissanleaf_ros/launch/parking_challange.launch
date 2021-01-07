@@ -11,8 +11,7 @@
 
 <launch>
 
-    <!--convert simulated pointcloud from 2d lidar to laserscan-->
-    <!--<node pkg="pointcloud_to_laserscan"  type= "pointcloud_to_laserscan_node"  name="pointcloud_to_laserscan"/>-->
+ 
 
     <!-- include lidar2d node algorithm from Mátyás 
     <include file="$(find lidar2d)/launchdir/park_goal.launch" /> -->
