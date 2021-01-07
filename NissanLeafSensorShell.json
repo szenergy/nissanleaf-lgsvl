@@ -99,7 +99,7 @@
         "PointColor": "#ff000000",
         "Topic": "/point_cloud",
         "Frame": "laser",
-        "VelodyneLidarType": "VLP_32C",
+        "VelodyneLidarType": "VLP_16",
         "HostName": "172.27.75.105",
         "UdpPortData": 2368,
         "UdpPortPosition": 8308
@@ -113,7 +113,7 @@
         "roll": 0
       }
     },
-    
+        
     {
       "type": "Color Camera",
       "name": "ZED_1",
