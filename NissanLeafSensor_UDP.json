@@ -55,8 +55,6 @@
     "type": "VelodyneLidar",
     "name": "Ouster_OS1_Right",
     "params": {
-      "LaserCount": 2,
-      "FieldOfView": 45,
       "MinDistance": 0.5,
       "MaxDistance": 120,
       "RotationFrequency": 20,
@@ -83,8 +81,6 @@
     "type": "VelodyneLidar",
     "name": "Ouster_OS1_Left",
     "params": {
-      "LaserCount": 128,
-      "FieldOfView": 45,
       "MinDistance": 0.5,
       "MaxDistance": 120,
       "RotationFrequency": 20,
