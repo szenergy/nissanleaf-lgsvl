@@ -23,12 +23,16 @@
   <node pkg="lgsvl_nissanleaf_ros" type="odom_to_pose.py" name="odom_to_pose_py" output="screen" />
   <node pkg="lgsvl_nissanleaf_ros" type="canbus_to_autoware.py" name="canbus_to_autoware_py" output="screen" />
 
+  <param name="gps_localizer" value="nova"/>  <!--nova / duro -->  
+  <node pkg="lgsvl_nissanleaf_ros" type="gps_localizer.py" name="gps_localizer_py" output="screen" />
+
+<!--
   <node pkg="gps_tf_publisher" type="gps_tf_publisher" name="novatel_leaf_tf_publisher">
     <remap from="gps/current_pose" to="/gps/nova/current_pose"/> 
-  </node>
+  </node>-->
 
   <node pkg="nissan_bringup" type="current_pose_from_tf.py" name="current_pose_from_tf"/>
 
   <!-- if param nova or duro -->
-  <node pkg="tf" type="static_transform_publisher" name="novatel_static_tf_publisher" args="-1.33 0.408 -1.362 0 0 0 gps base_link 50"/>
+  <!--<node pkg="tf" type="static_transform_publisher" name="novatel_static_tf_publisher" args="-1.33 0.408 -1.362 0 0 0 gps base_link 50"/>-->
 </launch>
