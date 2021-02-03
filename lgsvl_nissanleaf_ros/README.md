@@ -15,6 +15,10 @@ rosparam set lgsvl_location gyor
 rosparam set lgsvl_location zero
 rosrun lgsvl_nissanleaf_ros odom_to_pose.py
 ```
+To start the static + dynamic trasforms and the bridge (in case of Windows), run:
+```
+roslaunch lgsvl_nissanleaf_ros tf_bridge.launch
+```
 
 To start the static + dynamic trasforms, the vehicle model and the bridge (in case of Windows), run:
 ```
@@ -27,4 +31,6 @@ roslaunch lgsvl_nissanleaf_ros tf_model.launch
 ```
 
 ## Dependencies
-- [nissan_leaf_ros](https://github.com/szenergy/nissan_leaf_ros)/nissan_brigup contains the 3D rviz model
+- [lgsvl_msgs](https://github.com/lgsvl/lgsvl_msgs) LGSVL related ROS message types, clone and build in the catkin workspace
+- [rosbridge-server](http://wiki.ros.org/rosbridge_server) simply install with `sudo apt install ros-$ROS_DISTRO-rosbridge-server`
+- [nissan_leaf_ros](https://github.com/szenergy/nissan_leaf_ros)/nissan_brigup contains the 3D rviz model (optional for visualization in RVIZ)
