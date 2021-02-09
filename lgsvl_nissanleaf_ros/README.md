@@ -55,7 +55,9 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
 Clone the dependencies to the catkin workspace.
 ```
-git clone https://github.com/szenergy/nissanleaf-lgsvl
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src
+cd ~/catkin_ws/src
 git clone https://github.com/lgsvl/lgsvl_msgs
 git clone https://github.com/ros-drivers/velodyne
 git clone https://github.com/szenergy/nissan_leaf_ros #optional
