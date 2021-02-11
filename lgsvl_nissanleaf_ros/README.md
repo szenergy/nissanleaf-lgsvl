@@ -78,5 +78,5 @@ sudo apt install ros-$ROS_DISTRO-rosbridge-server
 
 Install `v0.1-beta` on windows:
 <p align="center">
-    <a hfref="https://www.youtube.com/watch?v=EH_U3JtfVO4"><img src="../Figures/NissanLeafLGSVLvideo01.png" width=400 /></a>
+    <a href="https://www.youtube.com/watch?v=EH_U3JtfVO4"><img src="../Figures/NissanLeafLGSVLvideo01.png" width=400 /></a>
 </p>
