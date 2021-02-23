@@ -60,12 +60,14 @@ rosdep install --from-paths src --ignore-src
 cd ~/catkin_ws/src
 git clone https://github.com/lgsvl/lgsvl_msgs
 git clone https://github.com/ros-drivers/velodyne
-git clone https://github.com/szenergy/nissan_leaf_ros #optional
+git clone https://github.com/szenergy/nissan_leaf_ros
+git clone https://github.com/szenergy/nissanleaf-lgsvl
+git clone https://github.com/szenergy/szenergy-utility-programs
 ```
 
 Build and don't forget to source bashrc.
 ```
-catkin build lgsvl_msgs nissanleaf-lgsvl velodyne
+catkin build lgsvl_msgs lgsvl_nissanleaf_ros velodyne gps_tf_publisher
 source ~/.bashrc
 ```
 
