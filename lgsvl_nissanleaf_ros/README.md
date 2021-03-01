@@ -76,6 +76,38 @@ Install rosbridge-server.
 sudo apt install ros-$ROS_DISTRO-rosbridge-server
 ```
 
+# Topics
+
+|Topic|Type|Hz|Description|Port (sim)|Port (leaf)
+|-|-|-|-|-|-|
+`/velodyne_left/velodyne_points`|sensor_msgs/PointCloud2|20|Velodyne LIDAR| |
+`/velodyne_right/velodyne_points`|sensor_msgs/PointCloud2|20|Velodyne LIDAR| |
+`/left_os1/os1_cloud_node/points`|sensor_msgs/PointCloud2|20|Ouster LIDAR| |
+`/right_os1/os1_cloud_node/points`|sensor_msgs/PointCloud2|20|Ouster LIDAR| |
+`/left_os1/os1_cloud_node/imu`|sensor_msgs/Imu|100|Ouster LIDAR| |
+`/right_os1/os1_cloud_node/imu`|sensor_msgs/Imu|100|Ouster LIDAR| |
+`/cloud`|sensor_msgs/PointCloud2|25|SICK LIDAR| |
+`/scan`|sensor_msgs/LaserScan|25|SICK LIDAR| |
+`/zed_node/left/camera_info`|sensor_msgs/CameraInfo|20|ZED camera| |
+`/zed_node/left/image_rect_color/compressed`|sensor_msgs/Image|20|ZED camera| |
+`/vehicle_status`|autoware_msgs/VehicleStatus|100|CAN data| |
+`/gps/duro/current_pose`|geometry_msgs/PoseStamped|20|Duro GPS (UTM)| |
+`/gps/duro/imu`|sensor_msgs/Imu|200|Duro GPS| |
+`/gps/duro/mag`|sensor_msgs/MagneticField|25|Duro GPS| |
+`/gps/nova/current_pose`|geometry_msgs/PoseStamped|40|Novatel GPS (UTM)| |
+`/gps/nova/imu`|sensor_msgs/Imu|200|Novatel GPS| |
+`/current_pose`|geometry_msgs/PoseStamped|20|Current pose from the used GPS| |
+`/tf`|tf2_msgs/TFMessage|500+|Transform| |
+
+Some important types:
+
+- [`geometry_msgs/PoseStamped`](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/PoseStamped.html)
+- [`sensor_msgs/PointCloud2`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/PointCloud2.html)
+- [`sensor_msgs/LaserScan`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/LaserScan.html)
+- [`sensor_msgs/NavSatFix`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/NavSatFix.html) 
+- [`sensor_msgs/Imu`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Imu.html)
+- [`sensor_msgs/MagneticField`](http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/MagneticField.html) 
+
 # Notes
 
 Install `v0.1-beta` on windows:
