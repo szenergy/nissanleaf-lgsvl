@@ -13,7 +13,7 @@ def controlcmdCallback(msg):
     twist_msg.header.stamp = rospy.Time.now()
     twist_msg.header.frame_id = "base_link"
     twist_msg.twist.linear.x=msg.cmd.linear_velocity/3.6
-    twist_msg.twist.angular.z=msg.cmd.steering_angle
+    twist_msg.twist.angular.z=msg.cmd.steering_angle*2.90845634
     if pub_twist is not None:
         pub_twist.publish(twist_msg)
 
@@ -23,7 +23,7 @@ def listener():
     rospy.init_node("ctrl_cmd_to_twist_raw_converter", anonymous=True)  
     rospy.Subscriber("/ctrl_cmd", autoware.ControlCommandStamped, controlcmdCallback)
     
-    pub_twist = rospy.Publisher("/twist_cmd", geomsg.TwistStamped, queue_size=10)
+    pub_twist = rospy.Publisher("/twist_cmd", geomsg.TwistStamped, queue_size=1)
     #pub_vehiclestatus=rospy.Publisher("/vehicle_status", autoware.VehicleStatus, queue_size=10)
     rospy.loginfo("publish twist_cmd")
 

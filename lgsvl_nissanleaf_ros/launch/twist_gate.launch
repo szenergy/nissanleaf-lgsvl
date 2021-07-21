@@ -3,7 +3,7 @@
 	<node pkg="lgsvl_nissanleaf_ros" type="ctrl_cmd_twist_cmd_converter.py" name="canbus_toctrl_cmd_twist_cmd_converter_py" output="screen" />
 	<node pkg="topic_tools" type="relay" name="cmd_relay" args="/ctrl_raw /ctrl_cmd" />
 	<node pkg="twist_gate" type="twist_gate" name="twist_gate" output="screen">
-    <param name="loop_rate" value="30" />
+    <param name="loop_rate" value="33" />
     <param name="use_decision_maker" value="false)" />
   </node>
 	
