@@ -3,13 +3,19 @@
 import rospy
 import lgsvl_msgs.msg as lgsvl
 import geometry_msgs.msg as geomsg
-import autoware_msgs.msg as autoware
+autoware_installed = True
+try:
+    import autoware_msgs.msg as autoware
+except:
+    autoware_installed = False
+
 
 pub_velocity = None
 pub_vehiclestatus= None
 
+
 def canCallBack(msg):
-    global pub_velocity,pub_vehiclestatus
+    global pub_velocity,pub_vehiclestatus, autoware_installed
 
     #publish current_velocity
     vel_msg=geomsg.TwistStamped()
@@ -36,7 +42,10 @@ def listener():
     rospy.Subscriber("/canbus", lgsvl.CanBusData, canCallBack)
     
     pub_velocity = rospy.Publisher("/current_velocity", geomsg.TwistStamped, queue_size=10)
-    pub_vehiclestatus=rospy.Publisher("/vehicle_status", autoware.VehicleStatus, queue_size=10)
+    if autoware_installed is True:
+        pub_vehiclestatus=rospy.Publisher("/vehicle_status", autoware.VehicleStatus, queue_size=10)
+    else:
+        rospy.logwarn("Autoware is not installed")
     rospy.loginfo("current_velocity and vehicle_status are publishing")
 
     rospy.spin()

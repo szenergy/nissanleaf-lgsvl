@@ -4,8 +4,6 @@
 -->
 <launch>
 
-  <arg name="model_path" default="$(find nissan_bringup)/param/nissan_leaf_robotdescription.ref.xml" />
-  <include file="$(find vehicle_description)/launch/vehicle_model.launch" />
-  <param name="robot_description" textfile="$(arg model_path)" />
+  <include file="$(find nissan_bringup)/launch/3d_nissan.launch" />
 
 </launch>
