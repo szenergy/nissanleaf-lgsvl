@@ -22,7 +22,7 @@ def canCallBack(msg):
     vel_msg.header.stamp = rospy.Time.now()
     vel_msg.header.frame_id = "base_link"
     vel_msg.twist.linear.x=msg.speed_mps                #m/s
-    vel_msg.twist.angular.z=-msg.steer_pct*31*(3.14/180)  #rad  todo:revision stearing limit
+    vel_msg.twist.angular.z=-msg.steer_pct*39.4*(3.14/180)  #rad  todo:revision stearing limit
     if pub_velocity is not None:
         pub_velocity.publish(vel_msg)
 
