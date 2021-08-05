@@ -13,7 +13,7 @@ def controlcmdCallback(msg):
     twist_msg.header.stamp = rospy.Time.now()
     twist_msg.header.frame_id = "base_link"
     twist_msg.twist.linear.x=msg.cmd.linear_velocity/3.6
-    twist_msg.twist.angular.z=msg.cmd.steering_angle*2.90845634
+    twist_msg.twist.angular.z=msg.cmd.steering_angle*2.90845634                        # const=2/39.4 deg in rad
     if pub_twist is not None:
         pub_twist.publish(twist_msg)
 
