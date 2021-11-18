@@ -17,8 +17,8 @@
     <include file="$(find lidar2d)/launchdir/park_goal.launch" /> -->
 
     <!--Publish necessary topics for MPC  -->
-    <node pkg="nissan_bringup" type="bare_planner.py" name="bare_planner_py"/>
-    <node pkg="nissan_bringup" type="global_waypoint_monitor.py" name="global_waypoint_monitor_py"/>
+    <node pkg="nissan_bringup" type="bare_planner_odom.py" name="bare_planner_py"/>
+    <node pkg="nissan_bringup" type="global_waypoint_monitor_odom.py" name="global_waypoint_monitor_py"/>
     
     <!--include launch file for conversions for /vehicle_cmd topic. MPC_follower node is NOT included-->
     <include file="$(find lgsvl_nissanleaf_ros)/launch/twist_gate.launch" />
@@ -111,7 +111,7 @@
       <param name="ctrl_cmd_interface" value="all"/>
       <param name="in_waypoints_name" value="/mpc_waypoints"/>
       <param name="in_vehicle_status_name" value="/vehicle_status"/>
-      <param name="in_selfpose_name" value="/current_pose"/>
+      <param name="in_selfpose_name" value="/current_pose_local"/>
       <param name="out_twist_name" value="/twist_raw"/>
       <param name="out_vehicle_cmd_name" value="/ctrl_raw"/>
 

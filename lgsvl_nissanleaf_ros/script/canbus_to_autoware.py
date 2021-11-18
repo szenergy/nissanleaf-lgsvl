@@ -30,7 +30,7 @@ def canCallBack(msg):
     vehicle_msg=autoware.VehicleStatus()
     vehicle_msg.header.stamp = rospy.Time.now()
     vehicle_msg.header.frame_id = "base_link"
-    vehicle_msg.speed=msg.speed_mps                 #m/s
+    vehicle_msg.speed = msg.speed_mps                 #m/s
     vehicle_msg.angle=-msg.steer_pct*39.4*(3.14/180)     #rad        todo:revision steering limit
     if pub_vehiclestatus is not None:
         pub_vehiclestatus.publish(vehicle_msg)

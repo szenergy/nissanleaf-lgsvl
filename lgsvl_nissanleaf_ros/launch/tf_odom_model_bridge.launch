@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    TF:         static + 1 dynamic transform
+    MODEL:      vehicle_model for rviz in 3d
+    BRIDGE:     roslaunch rosbridge_server rosbridge_websocket.launch
+-->
+<launch>
+  <!-- tf -->
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/tf_odom.launch" />
+
+  <!-- model -->
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/model.launch" />
+  
+  <!-- bridge -->
+  <include file="$(find lgsvl_nissanleaf_ros)/launch/bridge.launch" />
+</launch>

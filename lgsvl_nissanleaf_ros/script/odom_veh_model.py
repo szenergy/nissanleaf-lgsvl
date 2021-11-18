@@ -11,17 +11,20 @@ import std_msgs.msg as stdmsg
 from scipy.spatial.transform import Rotation as R
 import tf2_ros
 import math
-#import matplotlib.pyplot as plt
+import lgsvl_msgs.msg as lgsvl
 
 speed_mps = 0.0
 t1=0.0
-x=y=0.0
-pos_x = pos_y = theta = 0.0 
-r=0.0
+x=y=theta=0.0
+#x = 36.4204330444
+#y = 3.55800437927
+#theta = 3.14159264739
+r = 0.0
+reversed = None
 
 
 def vehicle_status_callback(data):
-    global t1,pos_x,pos_y,x,y,theta,speed_mps,r
+    global t1,pos_x,pos_y,x,y,theta,speed_mps,r,reversed
    
     previous_speed=speed_mps
     wheel_ang_rad=data.angle
@@ -47,7 +50,6 @@ def vehicle_status_callback(data):
     if delta > 1:
       delta=0.01
     
-    theta += delta * vx / length * np.tan(wheel_ang_rad) 
 
     r=R.from_euler('z',mod_theta, degrees=False)
     
@@ -58,9 +60,14 @@ def vehicle_status_callback(data):
 
     # pos_x = delta * speed_mps * np.cos(mod_theta)
     # pos_y = delta * speed_mps * np.sin(mod_theta)
-        
-    x=x+pos_x
-    y=y+pos_y
+
+    if reversed == False:        
+        x=x+pos_x
+        y=y+pos_y
+        theta += delta * vx / length * np.tan(wheel_ang_rad) 
+
+    else:
+        x=y=theta=0.0
     
 
     pose=geomsg.PoseStamped()
@@ -71,9 +78,12 @@ def vehicle_status_callback(data):
     pose.pose.position.z = 0.0
     pose.pose.orientation.x = r.as_quat()[0]
     pose.pose.orientation.y = r.as_quat()[1]
-    pose.pose.orientation.z = r.as_quat()[2]
-    pose.pose.orientation.w = r.as_quat()[3]
-
+    if reversed == False:
+        pose.pose.orientation.z = r.as_quat()[2]
+        pose.pose.orientation.w = r.as_quat()[3]
+    else:
+        pose.pose.orientation.z = 0.0
+        pose.pose.orientation.w = 1.0
     br = tf2_ros.TransformBroadcaster()
     t = geomsg.TransformStamped()
     t.header.stamp = rospy.Time.now()
@@ -85,8 +95,12 @@ def vehicle_status_callback(data):
     
     t.transform.rotation.x = r.as_quat()[0]
     t.transform.rotation.y = r.as_quat()[1]
-    t.transform.rotation.z = r.as_quat()[2]
-    t.transform.rotation.w = r.as_quat()[3]
+    if reversed == False:
+        t.transform.rotation.z = r.as_quat()[2]
+        t.transform.rotation.w = r.as_quat()[3]
+    else:
+        t.transform.rotation.z = 0.0
+        t.transform.rotation.w = 1.0
 
     br.sendTransform(t)
 
@@ -95,12 +109,17 @@ def vehicle_status_callback(data):
     pub_theta.publish(th)
     pub_pose.publish(pose)
 
+def canCallBack(msg):
+    global reversed
+    reversed=msg.reverse_gear_active
+
 
 
 if __name__ == '__main__':
     global pub_pose
 
     rospy.init_node('odometry')
+    rospy.Subscriber('/canbus',lgsvl.CanBusData, canCallBack)
     rospy.Subscriber('/vehicle_status', autmsg.VehicleStatus,  vehicle_status_callback)
     pub_pose = rospy.Publisher("/odom", geomsg.PoseStamped, queue_size=1, latch=True)
     pub_theta = rospy.Publisher("/theta", stdmsg.Float32, queue_size=1, latch=True)
