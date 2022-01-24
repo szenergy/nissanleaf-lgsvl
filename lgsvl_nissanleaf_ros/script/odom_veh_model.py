@@ -16,20 +16,19 @@ import lgsvl_msgs.msg as lgsvl
 speed_mps = 0.0
 t1=0.0
 x=y=theta=0.0
-#x = 36.4204330444
-#y = 3.55800437927
-#theta = 3.14159264739
 r = 0.0
 reversed = None
+params=rospy.get_param(rospy.get_param("car_name"))
+wheelbase = params['wheelbase'] 
 
 
 def vehicle_status_callback(data):
-    global t1,pos_x,pos_y,x,y,theta,speed_mps,r,reversed
+    global t1,pos_x,pos_y,x,y,theta,speed_mps,r,reversed,wheelbase
    
     previous_speed=speed_mps
     wheel_ang_rad=data.angle
     speed_mps=data.speed
-    length = 2.7 # the disatance between the rear and the front axle TODO from param
+    
     mod_theta=theta
     if mod_theta > math.pi:
         mod_theta = theta - (2*math.pi)
@@ -64,7 +63,7 @@ def vehicle_status_callback(data):
     if reversed == False:        
         x=x+pos_x
         y=y+pos_y
-        theta += delta * vx / length * np.tan(wheel_ang_rad) 
+        theta += delta * vx / wheelbase * np.tan(wheel_ang_rad) 
 
     else:
         x=y=theta=0.0
